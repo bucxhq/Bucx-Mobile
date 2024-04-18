@@ -8,8 +8,18 @@ import {
 } from "react-native";
 import React, { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
-import BottomNav from "../custom/BottomNav";
+import ButtomBottons from "../custom/ButtomBottons";
+import TopUp from "./Modals/TopUp";
 const Home = () => {
+  const [modalVisible, setModalVisible] = useState(false);
+
+  const openModal = () => {
+    setModalVisible(true);
+  };
+
+  const closeModal = () => {
+    setModalVisible(false);
+  };
   const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, ".", 0, "x"];
   const [pressedValues, setPressedValues] = useState([]);
 
@@ -30,7 +40,15 @@ const Home = () => {
   return (
     <>
       <SafeAreaView />
-      <View style={{ paddingLeft: 5, paddingRight: 5 }}>
+      <View
+        style={{
+          paddingLeft: 5,
+          paddingRight: 5,
+          height: "100%",
+          position: "relative",
+          flex: 1,
+        }}
+      >
         <View
           style={{
             display: "flex",
@@ -69,9 +87,12 @@ const Home = () => {
               <Text style={styles.bal}>Balance: $34,456</Text>
             </View>
             <View>
-              <TouchableOpacity>
+              <TouchableOpacity onPress={() => openModal()}>
                 <Image source={require("../assets/images/plus.png")} />
               </TouchableOpacity>
+              {modalVisible && (
+                <TopUp closeModal={closeModal} modalVisible={modalVisible} />
+              )}
             </View>
           </View>
           <View>
@@ -134,6 +155,7 @@ const Home = () => {
           ))}
         </View>
         {/* <BottomNav /> */}
+        <ButtomBottons />
       </View>
     </>
   );

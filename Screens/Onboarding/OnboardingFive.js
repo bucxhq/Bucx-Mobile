@@ -43,13 +43,13 @@ const OnboardingFive = ({ navigation }) => {
         <View>
           <TouchableOpacity
             style={styles.googgleBtn}
-            // onPress={() => navigation.navigate("BottomNav")}
+            onPress={() => navigation.navigate("Home")}
           >
             <View style={{ display: "flex", flexDirection: "row", gap: 10 }}>
               <Image
                 width={24}
                 height={24}
-                source={require("../../assets/images/google-logo-9808 1.png")}
+                source={require("../../assets/images/google_logo.png")}
               />
               <Text
                 style={{

@@ -10,23 +10,18 @@ import {
   ScrollView,
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons/";
-import { PrefixTextField } from "../custom/Text";
+import { PrefixTextField } from "../../custom/Text";
 import { SafeAreaView } from "react-native-safe-area-context";
-import Sendind from "./Modals/Sendind";
-const Send = ({ modalVisible, openModal, closeModal }) => {
-  const [buttonPressed, setButtonPressed] = useState(false);
-
-  const [sendingModalVisible, setSendingModalVisible] = useState(false);
-  const handleButtonPress = () => {
-    closeModal;
-    setSendingModalVisible(true);
-  };
-  const SendopenModal = () => {
-    setSendingModalVisible(true);
+import Requesting from "./Requesting";
+const RequestFundds = ({ closeRequestModal, requestmodalVisible }) => {
+  const [requestingModal, setRequestingModal] = useState(false);
+  const requestingopenModal = () => {
+    setRequestingModal(true);
   };
 
-  const SendcloseModal = () => {
-    setSendingModalVisible(false);
+  const requestingcloseModal = () => {
+    closeRequestModal();
+    setRequestingModal(false);
   };
   const [txt, setTxt] = useState("");
   return (
@@ -40,14 +35,11 @@ const Send = ({ modalVisible, openModal, closeModal }) => {
           backgroundColor: "blue",
         }}
       >
-        <TouchableOpacity onPress={openModal}>
-          <Text style={{ fontSize: 18, color: "blue" }}>Open Modal</Text>
-        </TouchableOpacity>
         <Modal
           animationType="slide"
           transparent={true}
-          visible={modalVisible}
-          onRequestClose={closeModal}
+          visible={requestmodalVisible}
+          onRequestClose={requestingcloseModal}
         >
           <View
             style={{
@@ -94,7 +86,7 @@ const Send = ({ modalVisible, openModal, closeModal }) => {
                       fontSize: 24,
                     }}
                   >
-                    💸
+                    🤑
                   </Text>
                   <Text
                     style={{
@@ -102,41 +94,41 @@ const Send = ({ modalVisible, openModal, closeModal }) => {
                       fontSize: 24,
                     }}
                   >
-                    Send Funds
+                    Request Funds
                   </Text>
                 </View>
-                <TouchableOpacity onPress={closeModal}>
+                <TouchableOpacity onPress={requestingcloseModal}>
                   <Text style={{ fontSize: 18, color: "blue", marginTop: 10 }}>
                     <Ionicons name="close-sharp" size={30} color="#666666" />
                   </Text>
                 </TouchableOpacity>
               </View>
-              <View>
+              <View style={{ marginTop: 10 }}>
                 <PrefixTextField
                   value={txt}
                   onChangeText={(e) => setTxt(e)}
-                  prefix="To :"
+                  prefix="From :"
                   placeholder="Email or wallet address"
                 />
                 {txt === "" ? (
                   <TouchableOpacity>
                     <Image
-                      source={require("../assets/images/Scanner.png")}
+                      source={require("../../assets/images/Scanner.png")}
                       style={{ position: "absolute", right: 20, bottom: 15 }}
                     />
                   </TouchableOpacity>
                 ) : (
                   <View>
-                    <TouchableOpacity onPress={handleButtonPress}>
+                    <TouchableOpacity onPress={requestingopenModal}>
                       <Image
-                        source={require("../assets/images/Plain.png")}
+                        source={require("../../assets/images/Plain.png")}
                         style={{ position: "absolute", right: 20, bottom: 5 }}
                       />
                     </TouchableOpacity>
-                    {sendingModalVisible && (
-                      <Sendind
-                        SendcloseModal={SendcloseModal}
-                        sendingModalVisible={sendingModalVisible}
+                    {requestingModal && (
+                      <Requesting
+                        requestingcloseModal={requestingcloseModal}
+                        requestmodalVisible={requestmodalVisible}
                       />
                     )}
                   </View>
@@ -510,7 +502,7 @@ const Send = ({ modalVisible, openModal, closeModal }) => {
                         }}
                       >
                         <Image
-                          source={require("../assets/images/withdrawal.png")}
+                          source={require("../../assets/images/withdrawal.png")}
                         />
                         <View>
                           <Text style={{ fontSize: 16, fontWeight: "500" }}>
@@ -566,7 +558,7 @@ const Send = ({ modalVisible, openModal, closeModal }) => {
                         }}
                       >
                         <Image
-                          source={require("../assets/images/withdrawal_2.png")}
+                          source={require("../../assets/images/withdrawal_2.png")}
                         />
                         <View>
                           <Text style={{ fontSize: 16, fontWeight: "500" }}>
@@ -621,7 +613,9 @@ const Send = ({ modalVisible, openModal, closeModal }) => {
                           gap: 8,
                         }}
                       >
-                        <Image source={require("../assets/images/from.png")} />
+                        <Image
+                          source={require("../../assets/images/from.png")}
+                        />
                         <View>
                           <Text style={{ fontSize: 16, fontWeight: "500" }}>
                             From Mahmudul Ha...
@@ -675,7 +669,9 @@ const Send = ({ modalVisible, openModal, closeModal }) => {
                           gap: 8,
                         }}
                       >
-                        <Image source={require("../assets/images/topUp.png")} />
+                        <Image
+                          source={require("../../assets/images/topUp.png")}
+                        />
                         <View>
                           <Text style={{ fontSize: 16, fontWeight: "500" }}>
                             Top-Up
@@ -717,31 +713,6 @@ const Send = ({ modalVisible, openModal, closeModal }) => {
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  /* openButton: {
-    color: "blue",
-  }, */
-  modalContainer: {
-    flex: 1,
-    justifyContent: "flex-end",
-    backgroundColor: "rgba(0, 0, 0, 0.5)",
-  },
-  modalContent: {
-    backgroundColor: "white",
-    borderTopLeftRadius: 20,
-    borderTopRightRadius: 20,
-    padding: 20,
-  },
-  closeButton: {
-    marginTop: 10,
-    textAlign: "center",
-    color: "blue",
-  },
-});
+export default RequestFundds;
 
-export default Send;
+const styles = StyleSheet.create({});

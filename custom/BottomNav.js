@@ -188,7 +188,7 @@ const BottomNav = ({ navigation }) => {
     setModalVisible(false);
   };
 
-  return (
+  /*  return (
     <Tab.Navigator>
       <Tab.Screen
         name="Request"
@@ -227,7 +227,7 @@ const BottomNav = ({ navigation }) => {
         }}
       />
     </Tab.Navigator>
-  );
+  ); */
 };
 
 export default BottomNav;

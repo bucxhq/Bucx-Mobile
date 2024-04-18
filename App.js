@@ -14,7 +14,7 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Splash">
+      <Stack.Navigator mode="modal" initialRouteName="Splash">
         <Stack.Screen
           options={{
             headerShown: false,
@@ -68,8 +68,8 @@ export default function App() {
           options={{
             headerShown: false,
           }}
-          name="BottomNav"
-          component={BottomNav}
+          name="Home"
+          component={Home}
         />
       </Stack.Navigator>
     </NavigationContainer>
