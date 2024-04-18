@@ -43,7 +43,7 @@ const OnboardingFive = ({ navigation }) => {
         <View>
           <TouchableOpacity
             style={styles.googgleBtn}
-            onPress={() => navigation.navigate("Home")}
+            // onPress={() => navigation.navigate("Home")}
           >
             <View style={{ display: "flex", flexDirection: "row", gap: 10 }}>
               <Image
