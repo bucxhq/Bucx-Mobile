@@ -2,8 +2,12 @@ import { Modal, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React from "react";
 import { Ionicons } from "@expo/vector-icons/";
 import { customWideBtn, customWideCancel } from "../../custom/customStyles";
+import { useFonts } from "expo-font";
 
 const ConfirmViaWallet = () => {
+  useFonts({
+    "ClashGrotesk-Bold": require("../../assets/fonts/ClashGrotesk-Bold.ttf"),
+  });
   return (
     <Modal
       animationType="slide"
@@ -53,6 +57,7 @@ const ConfirmViaWallet = () => {
                 style={{
                   color: "#171717",
                   fontSize: 24,
+                  fontFamily: "ClashGrotesk-Bold",
                 }}
               >
                 💸
@@ -61,13 +66,21 @@ const ConfirmViaWallet = () => {
                 style={{
                   color: "#171717",
                   fontSize: 24,
+                  fontFamily: "ClashGrotesk-Bold",
                 }}
               >
                 Send Funds
               </Text>
             </View>
             <TouchableOpacity onPress={closeConfimModal}>
-              <Text style={{ fontSize: 18, color: "blue", marginTop: 10 }}>
+              <Text
+                style={{
+                  fontSize: 18,
+                  color: "blue",
+                  marginTop: 10,
+                  fontFamily: "ClashGrotesk-Bold",
+                }}
+              >
                 <Ionicons name="close-sharp" size={30} color="#666666" />
               </Text>
             </TouchableOpacity>
@@ -100,7 +113,15 @@ const ConfirmViaWallet = () => {
                 {img}
               </View>
               <View>
-                <Text style={{ fontSize: 20, fontWeight: "500" }}>{head}</Text>
+                <Text
+                  style={{
+                    fontSize: 20,
+                    fontWeight: "500",
+                    fontFamily: "ClashGrotesk-Bold",
+                  }}
+                >
+                  {head}
+                </Text>
               </View>
             </View>
 
@@ -109,6 +130,7 @@ const ConfirmViaWallet = () => {
                 style={{
                   fontSize: 16,
                   fontWeight: "400",
+                  fontFamily: "ClashGrotesk-Bold",
                   textAlign: "center",
                 }}
               >
@@ -127,6 +149,7 @@ const ConfirmViaWallet = () => {
                     style={{
                       color: "#666666",
                       fontSize: 16,
+                      fontFamily: "ClashGrotesk-Bold",
                       fontWeight: "500",
                     }}
                   >

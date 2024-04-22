@@ -11,8 +11,12 @@ import React, { useState } from "react";
 import { Ionicons } from "@expo/vector-icons/";
 import { customWideBtn, customWideCancel } from "../../custom/customStyles";
 import Unique from "./Unique";
+import { useFonts } from "expo-font";
 
 const HoldTight = ({ closeHoldModal, holdModal, req }) => {
+  useFonts({
+    "ClashGrotesk-Bold": require("../../assets/fonts/ClashGrotesk-Bold.ttf"),
+  });
   const [SuccessModal, setSuccessModal] = useState(false);
 
   const openSuccessModal = () => {
@@ -81,7 +85,13 @@ const HoldTight = ({ closeHoldModal, holdModal, req }) => {
                 />
               </View>
               <View>
-                <Text style={{ fontSize: 26, fontWeight: "500" }}>
+                <Text
+                  style={{
+                    fontSize: 26,
+                    fontWeight: "500",
+                    fontFamily: "ClashGrotesk-Bold",
+                  }}
+                >
                   Hold Tight
                 </Text>
               </View>
@@ -92,6 +102,7 @@ const HoldTight = ({ closeHoldModal, holdModal, req }) => {
                 style={{
                   fontSize: 15,
                   fontWeight: "400",
+                  fontFamily: "ClashGrotesk-Bold",
                   textAlign: "center",
                 }}
               >

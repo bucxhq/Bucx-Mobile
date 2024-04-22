@@ -8,8 +8,12 @@ import {
   View,
 } from "react-native";
 import React, { useState } from "react";
+import { useFonts } from "expo-font";
 
 const SendViaEmail = () => {
+  useFonts({
+    "ClashGrotesk-Bold": require("../../assets/fonts/ClashGrotesk-Bold.ttf"),
+  });
   const [txt, setTxt] = useState("");
 
   return (
@@ -63,6 +67,7 @@ const SendViaEmail = () => {
                 style={{
                   color: "#171717",
                   fontSize: 24,
+                  fontFamily: "ClashGrotesk-Bold",
                 }}
               >
                 💸
@@ -71,13 +76,21 @@ const SendViaEmail = () => {
                 style={{
                   color: "#171717",
                   fontSize: 24,
+                  fontFamily: "ClashGrotesk-Bold",
                 }}
               >
                 Send Funds
               </Text>
             </View>
             <TouchableOpacity onPress={SendcloseModal}>
-              <Text style={{ fontSize: 18, color: "blue", marginTop: 10 }}>
+              <Text
+                style={{
+                  fontSize: 18,
+                  color: "blue",
+                  marginTop: 10,
+                  fontFamily: "ClashGrotesk-Bold",
+                }}
+              >
                 <Ionicons name="close-sharp" size={30} color="#666666" />
               </Text>
             </TouchableOpacity>
@@ -114,13 +127,27 @@ const SendViaEmail = () => {
                 />
               </View>
               <View>
-                <Text style={{ fontSize: 20, fontWeight: "500" }}>
+                <Text
+                  style={{
+                    fontSize: 20,
+                    fontWeight: "500",
+                    fontFamily: "ClashGrotesk-Bold",
+                  }}
+                >
                   4zMMC9srt5Ri5X14GAg...
                 </Text>
               </View>
             </View>
             <View style={{ marginTop: 30 }}>
-              <Text style={{ fontSize: 50, fontWeight: "500" }}>$345</Text>
+              <Text
+                style={{
+                  fontSize: 50,
+                  fontWeight: "500",
+                  fontFamily: "ClashGrotesk-Bold",
+                }}
+              >
+                $345
+              </Text>
             </View>
             <View style={{ marginTop: 50 }}>
               <TextInput

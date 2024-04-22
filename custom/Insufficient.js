@@ -10,8 +10,12 @@ import {
 import React from "react";
 import { Ionicons } from "@expo/vector-icons/";
 import { customWideBtn, customWideCancel } from "../../custom/customStyles";
+import { useFonts } from "expo-font";
 
 const Insufficient = () => {
+  useFonts({
+    "ClashGrotesk-Bold": require("../assets/fonts/ClashGrotesk-Bold.ttf"),
+  });
   return (
     <Modal
       animationType="slide"
@@ -70,7 +74,15 @@ const Insufficient = () => {
                 />
               </View>
               <View>
-                <Text style={{ fontSize: 26, fontWeight: "500" }}>Top Up!</Text>
+                <Text
+                  style={{
+                    fontSize: 26,
+                    fontWeight: "500",
+                    fontFamily: "ClashGrotesk-Bold",
+                  }}
+                >
+                  Top Up!
+                </Text>
               </View>
             </View>
 
@@ -81,6 +93,7 @@ const Insufficient = () => {
                   fontWeight: "400",
                   textAlign: "center",
                   color: "#3A3A3A",
+                  fontFamily: "ClashGrotesk-Bold",
                 }}
               >
                 You don’t have sufficient funds in your wallet to complete this

@@ -174,7 +174,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { customBtn } from "./customStyles";
 import Send from "../Screens/Send";
 import Home from "../Screens/Home";
-
+import { useFonts } from "expo-font";
 const Tab = createBottomTabNavigator();
 
 const BottomNav = ({ navigation }) => {

@@ -3,8 +3,12 @@ import React, { useState } from "react";
 import { Ionicons } from "@expo/vector-icons/";
 import { customWideBtn, customWideCancel } from "../../custom/customStyles";
 import HoldTight from "./HoldTight";
+import { useFonts } from "expo-font";
 
 const Confirm = ({ img, head, desc, closeConfimModal, confimModal }) => {
+  useFonts({
+    "ClashGrotesk-Bold": require("../../assets/fonts/ClashGrotesk-Bold.ttf"),
+  });
   const [holdModal, setHoldModal] = useState(false);
 
   const openHoldModal = () => {
@@ -62,6 +66,7 @@ const Confirm = ({ img, head, desc, closeConfimModal, confimModal }) => {
                 style={{
                   color: "#171717",
                   fontSize: 24,
+                  fontFamily: "ClashGrotesk-Bold",
                 }}
               >
                 💸
@@ -70,13 +75,21 @@ const Confirm = ({ img, head, desc, closeConfimModal, confimModal }) => {
                 style={{
                   color: "#171717",
                   fontSize: 24,
+                  fontFamily: "ClashGrotesk-Bold",
                 }}
               >
                 Send Funds
               </Text>
             </View>
             <TouchableOpacity onPress={closeConfimModal}>
-              <Text style={{ fontSize: 18, color: "blue", marginTop: 10 }}>
+              <Text
+                style={{
+                  fontSize: 18,
+                  color: "blue",
+                  marginTop: 10,
+                  fontFamily: "ClashGrotesk-Bold",
+                }}
+              >
                 <Ionicons name="close-sharp" size={30} color="#666666" />
               </Text>
             </TouchableOpacity>
@@ -109,7 +122,15 @@ const Confirm = ({ img, head, desc, closeConfimModal, confimModal }) => {
                 {img}
               </View>
               <View>
-                <Text style={{ fontSize: 20, fontWeight: "500" }}>{head}</Text>
+                <Text
+                  style={{
+                    fontSize: 20,
+                    fontWeight: "500",
+                    fontFamily: "ClashGrotesk-Bold",
+                  }}
+                >
+                  {head}
+                </Text>
               </View>
             </View>
 
@@ -119,6 +140,7 @@ const Confirm = ({ img, head, desc, closeConfimModal, confimModal }) => {
                   fontSize: 16,
                   fontWeight: "400",
                   textAlign: "center",
+                  fontFamily: "ClashGrotesk-Bold",
                 }}
               >
                 {desc}
@@ -146,6 +168,7 @@ const Confirm = ({ img, head, desc, closeConfimModal, confimModal }) => {
                       color: "#666666",
                       fontSize: 16,
                       fontWeight: "500",
+                      fontFamily: "ClashGrotesk-Bold",
                     }}
                   >
                     Cancel
@@ -167,5 +190,6 @@ const styles = StyleSheet.create({
     color: "#171717",
     fontSize: 16,
     fontWeight: "500",
+    fontFamily: "ClashGrotesk-Bold",
   },
 });

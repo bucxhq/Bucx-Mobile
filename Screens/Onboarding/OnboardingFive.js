@@ -8,8 +8,12 @@ import {
 } from "react-native";
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { useFonts } from "expo-font";
 
 const OnboardingFive = ({ navigation }) => {
+  useFonts({
+    "ClashGrotesk-Bold": require("../../assets/fonts/ClashGrotesk-Bold.ttf"),
+  });
   return (
     <>
       <SafeAreaView />
@@ -57,6 +61,7 @@ const OnboardingFive = ({ navigation }) => {
                   fontWeight: "500",
                   fontSize: 18,
                   textAlign: "center",
+                  fontFamily: "ClashGrotesk-Bold",
                 }}
               >
                 Sign in with Google
@@ -84,11 +89,13 @@ const styles = StyleSheet.create({
     fontWeight: "600",
     fontSize: 36,
     textAlign: "center",
+    fontFamily: "ClashGrotesk-Bold",
     color: "#000000",
   },
   txt2: {
     fontWeight: "400",
     fontSize: 18,
+    fontFamily: "ClashGrotesk-Bold",
     textAlign: "center",
     color: "#000000",
   },
@@ -108,6 +115,7 @@ const styles = StyleSheet.create({
     fontWeight: "400",
     fontSize: 16,
     textAlign: "center",
+    fontFamily: "ClashGrotesk-Bold",
     color: "#888888",
   },
   getStarted: {
@@ -121,6 +129,7 @@ const styles = StyleSheet.create({
     marginTop: 50,
   },
   getStartedTxt: {
+    fontFamily: "ClashGrotesk-Bold",
     fontWeight: "400",
     fontSize: 14,
     textAlign: "center",

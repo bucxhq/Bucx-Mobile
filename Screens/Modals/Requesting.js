@@ -12,8 +12,12 @@ import { Ionicons } from "@expo/vector-icons/";
 import { customWideBtn } from "../../custom/customStyles";
 import Confirm from "./Confirm";
 import HoldTight from "./HoldTight";
+import { useFonts } from "expo-font";
 
 const Requesting = ({ requestingcloseModal, requestmodalVisible }) => {
+  useFonts({
+    "ClashGrotesk-Bold": require("../../assets/fonts/ClashGrotesk-Bold.ttf"),
+  });
   const [holdModal, setHoldModal] = useState(false);
 
   const openHoldModal = () => {
@@ -73,6 +77,7 @@ const Requesting = ({ requestingcloseModal, requestmodalVisible }) => {
                 style={{
                   color: "#171717",
                   fontSize: 24,
+                  fontFamily: "ClashGrotesk-Bold",
                 }}
               >
                 🤑
@@ -80,6 +85,7 @@ const Requesting = ({ requestingcloseModal, requestmodalVisible }) => {
               <Text
                 style={{
                   color: "#171717",
+                  fontFamily: "ClashGrotesk-Bold",
                   fontSize: 24,
                 }}
               >
@@ -87,7 +93,14 @@ const Requesting = ({ requestingcloseModal, requestmodalVisible }) => {
               </Text>
             </View>
             <TouchableOpacity onPress={requestingcloseModal}>
-              <Text style={{ fontSize: 18, color: "blue", marginTop: 10 }}>
+              <Text
+                style={{
+                  fontSize: 18,
+                  color: "blue",
+                  marginTop: 10,
+                  fontFamily: "ClashGrotesk-Bold",
+                }}
+              >
                 <Ionicons name="close-sharp" size={30} color="#666666" />
               </Text>
             </TouchableOpacity>
@@ -124,16 +137,36 @@ const Requesting = ({ requestingcloseModal, requestmodalVisible }) => {
                 />
               </View>
               <View>
-                <Text style={{ fontSize: 20, fontWeight: "500" }}>
+                <Text
+                  style={{
+                    fontSize: 20,
+                    fontWeight: "500",
+                    fontFamily: "ClashGrotesk-Bold",
+                  }}
+                >
                   Slazenger Jackson
                 </Text>
-                <Text style={{ fontSize: 14, fontWeight: "400" }}>
+                <Text
+                  style={{
+                    fontSize: 14,
+                    fontWeight: "400",
+                    fontFamily: "ClashGrotesk-Bold",
+                  }}
+                >
                   slazengerjackson@gmail.com
                 </Text>
               </View>
             </View>
             <View style={{ marginTop: 30 }}>
-              <Text style={{ fontSize: 50, fontWeight: "500" }}>$345</Text>
+              <Text
+                style={{
+                  fontSize: 50,
+                  fontWeight: "500",
+                  fontFamily: "ClashGrotesk-Bold",
+                }}
+              >
+                $345
+              </Text>
             </View>
             <View style={{ marginTop: 50 }}>
               <TextInput
@@ -179,9 +212,11 @@ const styles = StyleSheet.create({
   tabText: {
     fontSize: 16,
     fontWeight: "500",
+    fontFamily: "ClashGrotesk-Bold",
   },
   tabText1: {
     fontSize: 27,
     fontWeight: "500",
+    fontFamily: "ClashGrotesk-Bold",
   },
 });

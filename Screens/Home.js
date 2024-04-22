@@ -10,8 +10,15 @@ import React, { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import ButtomBottons from "../custom/ButtomBottons";
 import TopUp from "./Modals/TopUp";
+import Account from "./Modals/Account";
+import { useFonts } from "expo-font";
+
 const Home = () => {
+  useFonts({
+    "ClashGrotesk-Bold": require("../assets/fonts/ClashGrotesk-Bold.ttf"),
+  });
   const [modalVisible, setModalVisible] = useState(false);
+  const [accountModalVisible, setAccountModalVisible] = useState(false);
 
   const openModal = () => {
     setModalVisible(true);
@@ -20,6 +27,15 @@ const Home = () => {
   const closeModal = () => {
     setModalVisible(false);
   };
+
+  const openAccountModal = () => {
+    setAccountModalVisible(true);
+  };
+
+  const closeAccountModal = () => {
+    setAccountModalVisible(false);
+  };
+
   const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, ".", 0, "x"];
   const [pressedValues, setPressedValues] = useState([]);
 
@@ -47,6 +63,7 @@ const Home = () => {
           height: "100%",
           position: "relative",
           flex: 1,
+          alignItems: "center",
         }}
       >
         <View
@@ -54,8 +71,9 @@ const Home = () => {
             display: "flex",
             flexDirection: "row",
             alignItems: "center",
-            justifyContent: "space-between",
+            justifyContent: "space-around",
             marginTop: 15,
+            gap: 80,
           }}
         >
           <View
@@ -96,7 +114,15 @@ const Home = () => {
             </View>
           </View>
           <View>
-            <Image source={require("../assets/images/usericon.png")} />
+            <TouchableOpacity onPress={openAccountModal}>
+              <Image source={require("../assets/images/usericon.png")} />
+              {accountModalVisible && (
+                <Account
+                  closeAccountModal={closeAccountModal}
+                  accountModalVisible={accountModalVisible}
+                />
+              )}
+            </TouchableOpacity>
           </View>
         </View>
         <View
@@ -168,10 +194,12 @@ const styles = StyleSheet.create({
     fontWeight: "500",
     fontSize: 15,
     color: "#171717",
+    fontFamily: "ClashGrotesk-Bold",
   },
   bal_icon: {
     fontWeight: "500",
     fontSize: 18,
+    fontFamily: "ClashGrotesk-Bold",
     color: "#171717",
   },
   userIcon: {
@@ -197,10 +225,12 @@ const styles = StyleSheet.create({
   btnTxt: {
     fontSize: 28,
     fontWeight: "500",
+    fontFamily: "ClashGrotesk-Bold",
   },
   value: {
     fontSize: 80,
     fontWeight: "500",
+    fontFamily: "ClashGrotesk-Bold",
   },
   buttonPressed: {
     backgroundColor: "#FFE3DB",

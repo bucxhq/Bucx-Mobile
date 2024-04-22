@@ -11,8 +11,11 @@ import { customBtn } from "./customStyles";
 import Send from "../Screens/Send";
 import RequestFundds from "../Screens/Modals/RequestFundds";
 import Wallet from "../Screens/Modals/Wallet";
-
+import { useFonts } from "expo-font";
 const ButtomBottons = () => {
+  useFonts({
+    "ClashGrotesk-Bold": require("../assets/fonts/ClashGrotesk-Bold.ttf"),
+  });
   const [modalVisible, setModalVisible] = useState(false);
   const [requestmodalVisible, setRequestModalVisible] = useState(false);
   const [viewWalletModalVisible, setViewWalletModalVisible] = useState(false);
@@ -113,6 +116,8 @@ const styles = StyleSheet.create({
   tabText: {
     fontSize: 18,
     fontWeight: "500",
+    fontFamily: "ClashGrotesk-Bold",
+
     // paddingTop: 20,
   },
   container: {

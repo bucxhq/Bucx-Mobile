@@ -10,6 +10,7 @@ import {
 import React from "react";
 import { Ionicons } from "@expo/vector-icons/";
 import { customWideBtn, customWideCancel } from "../../custom/customStyles";
+import { useFonts } from "expo-font";
 
 const Unique = ({
   img,
@@ -19,6 +20,9 @@ const Unique = ({
   closeSuccessModal,
   SuccessModal,
 }) => {
+  useFonts({
+    "ClashGrotesk-Bold": require("../../assets/fonts/ClashGrotesk-Bold.ttf"),
+  });
   return (
     <Modal
       animationType="slide"
@@ -78,7 +82,15 @@ const Unique = ({
                 {img}
               </View>
               <View>
-                <Text style={{ fontSize: 26, fontWeight: "500" }}>{head}</Text>
+                <Text
+                  style={{
+                    fontSize: 26,
+                    fontWeight: "500",
+                    fontFamily: "ClashGrotesk-Bold",
+                  }}
+                >
+                  {head}
+                </Text>
               </View>
             </View>
 
@@ -87,6 +99,7 @@ const Unique = ({
                 style={{
                   fontSize: 15,
                   fontWeight: "400",
+                  fontFamily: "ClashGrotesk-Bold",
                   textAlign: "center",
                 }}
               >
@@ -115,6 +128,7 @@ export default Unique;
 const styles = StyleSheet.create({
   tabText: {
     color: "#171717",
+    fontFamily: "ClashGrotesk-Bold",
     fontSize: 16,
     fontWeight: "500",
   },

@@ -13,8 +13,7 @@ import React, { useState } from "react";
 import { Ionicons } from "@expo/vector-icons/";
 import { useFonts } from "expo-font";
 
-// import Clipboard from '@react-native-clipboard/clipboard';
-const Wallet = ({ closeWalletModal, viewWalletModalVisible }) => {
+const TopUpViaCrpto = ({ closeViaWalletModal, viaWallet }) => {
   useFonts({
     "ClashGrotesk-Bold": require("../../assets/fonts/ClashGrotesk-Bold.ttf"),
   });
@@ -25,11 +24,6 @@ const Wallet = ({ closeWalletModal, viewWalletModalVisible }) => {
     setIsClosed(true); // Close the modal
   };
 
-  const CloseWallet = () => {
-    setIsClosed(false);
-    closeWalletModal(); // Optional: Close the modal when the state changes
-  };
-
   const addr = "qwertyuipkknujvubvu";
   const firstSixWrds = addr.substring(0, 6);
   const lasrSixWrds = addr.substring(addr.length - 6);
@@ -38,8 +32,8 @@ const Wallet = ({ closeWalletModal, viewWalletModalVisible }) => {
     <Modal
       animationType="slide"
       transparent={true}
-      visible={viewWalletModalVisible && !isClosed}
-      onRequestClose={CloseWallet}
+      visible={viaWallet}
+      onRequestClose={closeViaWalletModal}
     >
       <View
         style={{
@@ -62,6 +56,56 @@ const Wallet = ({ closeWalletModal, viewWalletModalVisible }) => {
         >
           <View
             style={{
+              backgroundColor: "white",
+              // padding: 20,
+              borderRadius: 10,
+              display: "flex",
+              flexDirection: "row",
+              alignItems: "center",
+              gap: 7,
+              justifyContent: "space-between",
+            }}
+          >
+            <View>
+              <Text
+                style={{
+                  color: "#171717",
+                  fontSize: 24,
+                  fontFamily: "ClashGrotesk-Bold",
+                }}
+              >
+                Top-Up
+              </Text>
+              <View>
+                <Text
+                  style={{
+                    color: "#5F5F5F",
+                    fontSize: 16,
+                    fontWeight: "400",
+                    textAlign: "left",
+                    justifyContent: "flex-start",
+                    alignItems: "flex-start",
+                    fontFamily: "ClashGrotesk-Bold",
+                  }}
+                >
+                  Add from crypto wallet
+                </Text>
+              </View>
+            </View>
+            <TouchableOpacity onPress={closeViaWalletModal}>
+              <Text
+                style={{
+                  fontSize: 18,
+                  marginTop: 10,
+                  fontFamily: "ClashGrotesk-Bold",
+                }}
+              >
+                <Ionicons name="close-sharp" size={30} color="#666666" />
+              </Text>
+            </TouchableOpacity>
+          </View>
+          <View
+            style={{
               alignItems: "center",
               justifyContent: "center",
               marginTop: 15,
@@ -70,33 +114,10 @@ const Wallet = ({ closeWalletModal, viewWalletModalVisible }) => {
             <View
               style={{
                 gap: 10,
-                alignItems: "center",
-                justifyContent: "center",
+                /*  alignItems: "center",
+                justifyContent: "center", */
               }}
-            >
-              <View>
-                <Text
-                  style={{
-                    fontSize: 20,
-                    fontWeight: "500",
-                    fontFamily: "ClashGrotesk-Bold",
-                  }}
-                >
-                  Your USDC Address
-                </Text>
-                <Text
-                  style={{
-                    fontSize: 14,
-                    fontWeight: "400",
-                    fontFamily: "ClashGrotesk-Bold",
-                    color: "#53524F",
-                    textAlign: "center",
-                  }}
-                >
-                  on Solana
-                </Text>
-              </View>
-            </View>
+            ></View>
             <View
               style={{
                 marginTop: 20,
@@ -116,6 +137,18 @@ const Wallet = ({ closeWalletModal, viewWalletModalVisible }) => {
                 {shortendAddress}
               </Text>
             </View>
+            <View style={{ marginTop: 20, width: 220 }}>
+              <Text
+                style={{
+                  textAlign: "center",
+                  fontSize: 15,
+                  fontWeight: "400",
+                  fontFamily: "ClashGrotesk-Bold",
+                }}
+              >
+                Send USDC on Solana from another wallet address to this address
+              </Text>
+            </View>
             <View style={{ marginTop: 30 }}>
               <TouchableOpacity
                 onPress={() => copyToClipboard(shortendAddress)}
@@ -125,7 +158,8 @@ const Wallet = ({ closeWalletModal, viewWalletModalVisible }) => {
                   borderRadius: 1000,
                   borderStyle: "solid",
                   borderWidth: 1,
-                  borderColor: "#C3C3C3",
+                  borderColor: "#000000",
+                  backgroundColor: "#14F195",
                   alignItems: "center",
                   justifyContent: "center",
                   marginTop: 15,
@@ -151,6 +185,6 @@ const Wallet = ({ closeWalletModal, viewWalletModalVisible }) => {
   );
 };
 
-export default Wallet;
+export default TopUpViaCrpto;
 
 const styles = StyleSheet.create({});

@@ -13,8 +13,15 @@ import { Ionicons } from "@expo/vector-icons/";
 import { PrefixTextField } from "../../custom/Text";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Requesting from "./Requesting";
+import Transactions from "./Transactions";
+import { useFonts } from "expo-font";
+
 const RequestFundds = ({ closeRequestModal, requestmodalVisible }) => {
+  useFonts({
+    "ClashGrotesk-Bold": require("../../assets/fonts/ClashGrotesk-Bold.ttf"),
+  });
   const [requestingModal, setRequestingModal] = useState(false);
+  const [transactionsModal, setTransactionsModdal] = useState(false);
   const requestingopenModal = () => {
     setRequestingModal(true);
   };
@@ -22,6 +29,13 @@ const RequestFundds = ({ closeRequestModal, requestmodalVisible }) => {
   const requestingcloseModal = () => {
     closeRequestModal();
     setRequestingModal(false);
+  };
+  const openTransactionModal = () => {
+    setTransactionsModdal(true);
+  };
+
+  const closeTransactionModal = () => {
+    setTransactionsModdal(false);
   };
   const [txt, setTxt] = useState("");
   return (
@@ -84,6 +98,7 @@ const RequestFundds = ({ closeRequestModal, requestmodalVisible }) => {
                     style={{
                       color: "#171717",
                       fontSize: 24,
+                      fontFamily: "ClashGrotesk-Bold",
                     }}
                   >
                     🤑
@@ -92,13 +107,21 @@ const RequestFundds = ({ closeRequestModal, requestmodalVisible }) => {
                     style={{
                       color: "#171717",
                       fontSize: 24,
+                      fontFamily: "ClashGrotesk-Bold",
                     }}
                   >
                     Request Funds
                   </Text>
                 </View>
                 <TouchableOpacity onPress={requestingcloseModal}>
-                  <Text style={{ fontSize: 18, color: "blue", marginTop: 10 }}>
+                  <Text
+                    style={{
+                      fontSize: 18,
+                      color: "blue",
+                      marginTop: 10,
+                      fontFamily: "ClashGrotesk-Bold",
+                    }}
+                  >
                     <Ionicons name="close-sharp" size={30} color="#666666" />
                   </Text>
                 </TouchableOpacity>
@@ -135,11 +158,17 @@ const RequestFundds = ({ closeRequestModal, requestmodalVisible }) => {
                 )}
               </View>
               <View style={{ marginTop: 30 }}>
-                <Text style={{ fontWeight: "500", fontSize: 18 }}>
+                <Text
+                  style={{
+                    fontWeight: "500",
+                    fontSize: 18,
+                    fontFamily: "ClashGrotesk-Bold",
+                  }}
+                >
                   Recent Recipients
                 </Text>
-                <View style={{ marginTop: 10 }}>
-                  {/*   <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+                <View style={{ marginTop: 10, width: 350 }}>
+                  <ScrollView horizontal showsHorizontalScrollIndicator={false}>
                     <View
                       style={{ display: "flex", flexDirection: "row", gap: 10 }}
                     >
@@ -171,10 +200,16 @@ const RequestFundds = ({ closeRequestModal, requestmodalVisible }) => {
                           <Image
                             width="100%"
                             height="100%"
-                            source={require("../assets/images/person_1.png")}
+                            source={require("../../assets/images/person_1.png")}
                           />
                         </View>
-                        <Text style={{ fontSize: 15, fontWeight: "500" }}>
+                        <Text
+                          style={{
+                            fontSize: 15,
+                            fontWeight: "500",
+                            fontFamily: "ClashGrotesk-Bold",
+                          }}
+                        >
                           Seun
                         </Text>
                       </View>
@@ -206,10 +241,16 @@ const RequestFundds = ({ closeRequestModal, requestmodalVisible }) => {
                           <Image
                             width="100%"
                             height="100%"
-                            source={require("../assets/images/person_3.png")}
+                            source={require("../../assets/images/person_3.png")}
                           />
                         </View>
-                        <Text style={{ fontSize: 15, fontWeight: "500" }}>
+                        <Text
+                          style={{
+                            fontSize: 15,
+                            fontWeight: "500",
+                            fontFamily: "ClashGrotesk-Bold",
+                          }}
+                        >
                           Fred
                         </Text>
                       </View>
@@ -241,10 +282,16 @@ const RequestFundds = ({ closeRequestModal, requestmodalVisible }) => {
                           <Image
                             width="100%"
                             height="100%"
-                            source={require("../assets/images/person_1.png")}
+                            source={require("../../assets/images/person_1.png")}
                           />
                         </View>
-                        <Text style={{ fontSize: 15, fontWeight: "500" }}>
+                        <Text
+                          style={{
+                            fontSize: 15,
+                            fontWeight: "500",
+                            fontFamily: "ClashGrotesk-Bold",
+                          }}
+                        >
                           Ken
                         </Text>
                       </View>
@@ -276,10 +323,16 @@ const RequestFundds = ({ closeRequestModal, requestmodalVisible }) => {
                           <Image
                             width="100%"
                             height="100%"
-                            source={require("../assets/images/person_2.png")}
+                            source={require("../../assets/images/person_2.png")}
                           />
                         </View>
-                        <Text style={{ fontSize: 15, fontWeight: "500" }}>
+                        <Text
+                          style={{
+                            fontSize: 15,
+                            fontWeight: "500",
+                            fontFamily: "ClashGrotesk-Bold",
+                          }}
+                        >
                           Titi
                         </Text>
                       </View>
@@ -311,10 +364,16 @@ const RequestFundds = ({ closeRequestModal, requestmodalVisible }) => {
                           <Image
                             width="100%"
                             height="100%"
-                            source={require("../assets/images/person_3.png")}
+                            source={require("../../assets/images/person_3.png")}
                           />
                         </View>
-                        <Text style={{ fontSize: 15, fontWeight: "500" }}>
+                        <Text
+                          style={{
+                            fontSize: 15,
+                            fontWeight: "500",
+                            fontFamily: "ClashGrotesk-Bold",
+                          }}
+                        >
                           Osas
                         </Text>
                       </View>
@@ -346,10 +405,16 @@ const RequestFundds = ({ closeRequestModal, requestmodalVisible }) => {
                           <Image
                             width="100%"
                             height="100%"
-                            source={require("../assets/images/person_4.png")}
+                            source={require("../../assets/images/person_4.png")}
                           />
                         </View>
-                        <Text style={{ fontSize: 15, fontWeight: "500" }}>
+                        <Text
+                          style={{
+                            fontSize: 15,
+                            fontWeight: "500",
+                            fontFamily: "ClashGrotesk-Bold",
+                          }}
+                        >
                           Alfred
                         </Text>
                       </View>
@@ -381,10 +446,16 @@ const RequestFundds = ({ closeRequestModal, requestmodalVisible }) => {
                           <Image
                             width="100%"
                             height="100%"
-                            source={require("../assets/images/person_5.png")}
+                            source={require("../../assets/images/person_5.png")}
                           />
                         </View>
-                        <Text style={{ fontSize: 15, fontWeight: "500" }}>
+                        <Text
+                          style={{
+                            fontSize: 15,
+                            fontWeight: "500",
+                            fontFamily: "ClashGrotesk-Bold",
+                          }}
+                        >
                           Seun
                         </Text>
                       </View>
@@ -416,10 +487,16 @@ const RequestFundds = ({ closeRequestModal, requestmodalVisible }) => {
                           <Image
                             width="100%"
                             height="100%"
-                            source={require("../assets/images/person_2.png")}
+                            source={require("../../assets/images/person_2.png")}
                           />
                         </View>
-                        <Text style={{ fontSize: 15, fontWeight: "500" }}>
+                        <Text
+                          style={{
+                            fontSize: 15,
+                            fontWeight: "500",
+                            fontFamily: "ClashGrotesk-Bold",
+                          }}
+                        >
                           Seun
                         </Text>
                       </View>
@@ -451,15 +528,21 @@ const RequestFundds = ({ closeRequestModal, requestmodalVisible }) => {
                           <Image
                             width="100%"
                             height="100%"
-                            source={require("../assets/images/person_5.png")}
+                            source={require("../../assets/images/person_5.png")}
                           />
                         </View>
-                        <Text style={{ fontSize: 15, fontWeight: "500" }}>
+                        <Text
+                          style={{
+                            fontSize: 15,
+                            fontWeight: "500",
+                            fontFamily: "ClashGrotesk-Bold",
+                          }}
+                        >
                           Seun
                         </Text>
                       </View>
                     </View>
-                  </ScrollView> */}
+                  </ScrollView>
                 </View>
                 <View style={{ marginTop: 20 }}>
                   <View
@@ -470,12 +553,32 @@ const RequestFundds = ({ closeRequestModal, requestmodalVisible }) => {
                       justifyContent: "space-between",
                     }}
                   >
-                    <Text style={{ fontSize: 18, fontWeight: "500" }}>
+                    <Text
+                      style={{
+                        fontSize: 18,
+                        fontWeight: "500",
+                        fontFamily: "ClashGrotesk-Bold",
+                      }}
+                    >
                       Recent Transactions
                     </Text>
-                    <Text style={{ fontSize: 14, fontWeight: "400" }}>
-                      See all
-                    </Text>
+                    <TouchableOpacity onPress={openTransactionModal}>
+                      <Text
+                        style={{
+                          fontSize: 14,
+                          fontWeight: "400",
+                          fontFamily: "ClashGrotesk-Bold",
+                        }}
+                      >
+                        See all
+                      </Text>
+                      {transactionsModal && (
+                        <Transactions
+                          closeTransactionModal={closeTransactionModal}
+                          transactionsModal={transactionsModal}
+                        />
+                      )}
+                    </TouchableOpacity>
                   </View>
                   <View>
                     <View
@@ -505,10 +608,22 @@ const RequestFundds = ({ closeRequestModal, requestmodalVisible }) => {
                           source={require("../../assets/images/withdrawal.png")}
                         />
                         <View>
-                          <Text style={{ fontSize: 16, fontWeight: "500" }}>
+                          <Text
+                            style={{
+                              fontSize: 16,
+                              fontWeight: "500",
+                              fontFamily: "ClashGrotesk-Bold",
+                            }}
+                          >
                             Seun Bayo
                           </Text>
-                          <Text style={{ fontSize: 14, fontWeight: "400" }}>
+                          <Text
+                            style={{
+                              fontSize: 14,
+                              fontWeight: "400",
+                              fontFamily: "ClashGrotesk-Bold",
+                            }}
+                          >
                             14:16, Mar 24, 2024
                           </Text>
                         </View>
@@ -518,6 +633,7 @@ const RequestFundds = ({ closeRequestModal, requestmodalVisible }) => {
                           style={{
                             color: "#D4321C",
                             fontWeight: "500",
+                            fontFamily: "ClashGrotesk-Bold",
                             fontSize: 16,
                           }}
                         >
@@ -528,6 +644,7 @@ const RequestFundds = ({ closeRequestModal, requestmodalVisible }) => {
                             color: "#888888",
                             fontWeight: "400",
                             fontSize: 14,
+                            fontFamily: "ClashGrotesk-Bold",
                           }}
                         >
                           NGN 33,650
@@ -561,10 +678,22 @@ const RequestFundds = ({ closeRequestModal, requestmodalVisible }) => {
                           source={require("../../assets/images/withdrawal_2.png")}
                         />
                         <View>
-                          <Text style={{ fontSize: 16, fontWeight: "500" }}>
+                          <Text
+                            style={{
+                              fontSize: 16,
+                              fontWeight: "500",
+                              fontFamily: "ClashGrotesk-Bold",
+                            }}
+                          >
                             Withdrawal
                           </Text>
-                          <Text style={{ fontSize: 14, fontWeight: "400" }}>
+                          <Text
+                            style={{
+                              fontSize: 14,
+                              fontWeight: "400",
+                              fontFamily: "ClashGrotesk-Bold",
+                            }}
+                          >
                             14:16, Mar 24, 2024
                           </Text>
                         </View>
@@ -575,6 +704,7 @@ const RequestFundds = ({ closeRequestModal, requestmodalVisible }) => {
                             color: "#D4321C",
                             fontWeight: "500",
                             fontSize: 16,
+                            fontFamily: "ClashGrotesk-Bold",
                           }}
                         >
                           -$54
@@ -583,6 +713,7 @@ const RequestFundds = ({ closeRequestModal, requestmodalVisible }) => {
                           style={{
                             color: "#8E55D4",
                             fontWeight: "400",
+                            fontFamily: "ClashGrotesk-Bold",
                             fontSize: 14,
                           }}
                         >
@@ -617,10 +748,22 @@ const RequestFundds = ({ closeRequestModal, requestmodalVisible }) => {
                           source={require("../../assets/images/from.png")}
                         />
                         <View>
-                          <Text style={{ fontSize: 16, fontWeight: "500" }}>
+                          <Text
+                            style={{
+                              fontSize: 16,
+                              fontWeight: "500",
+                              fontFamily: "ClashGrotesk-Bold",
+                            }}
+                          >
                             From Mahmudul Ha...
                           </Text>
-                          <Text style={{ fontSize: 14, fontWeight: "400" }}>
+                          <Text
+                            style={{
+                              fontSize: 14,
+                              fontWeight: "400",
+                              fontFamily: "ClashGrotesk-Bold",
+                            }}
+                          >
                             14:16, Mar 24, 2024
                           </Text>
                         </View>
@@ -631,6 +774,7 @@ const RequestFundds = ({ closeRequestModal, requestmodalVisible }) => {
                             color: "#0DA163",
                             fontWeight: "500",
                             fontSize: 16,
+                            fontFamily: "ClashGrotesk-Bold",
                           }}
                         >
                           +$24
@@ -640,6 +784,7 @@ const RequestFundds = ({ closeRequestModal, requestmodalVisible }) => {
                             color: "#8E55D4",
                             fontWeight: "400",
                             fontSize: 14,
+                            fontFamily: "ClashGrotesk-Bold",
                           }}
                         >
                           NGN 33,650
@@ -673,10 +818,22 @@ const RequestFundds = ({ closeRequestModal, requestmodalVisible }) => {
                           source={require("../../assets/images/topUp.png")}
                         />
                         <View>
-                          <Text style={{ fontSize: 16, fontWeight: "500" }}>
+                          <Text
+                            style={{
+                              fontSize: 16,
+                              fontWeight: "500",
+                              fontFamily: "ClashGrotesk-Bold",
+                            }}
+                          >
                             Top-Up
                           </Text>
-                          <Text style={{ fontSize: 14, fontWeight: "400" }}>
+                          <Text
+                            style={{
+                              fontSize: 14,
+                              fontWeight: "400",
+                              fontFamily: "ClashGrotesk-Bold",
+                            }}
+                          >
                             14:16, Mar 24, 2024
                           </Text>
                         </View>
@@ -687,6 +844,7 @@ const RequestFundds = ({ closeRequestModal, requestmodalVisible }) => {
                             color: "#0DA163",
                             fontWeight: "500",
                             fontSize: 16,
+                            fontFamily: "ClashGrotesk-Bold",
                           }}
                         >
                           +$424
@@ -695,6 +853,7 @@ const RequestFundds = ({ closeRequestModal, requestmodalVisible }) => {
                           style={{
                             color: "#8E55D4",
                             fontWeight: "400",
+                            fontFamily: "ClashGrotesk-Bold",
                             fontSize: 14,
                           }}
                         >
