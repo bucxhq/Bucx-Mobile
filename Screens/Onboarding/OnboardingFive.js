@@ -1,19 +1,42 @@
-import {
-  Image,
-  Pressable,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from "react-native";
-import React from "react";
+import React, { useEffect } from "react";
+import { Image, Text, TouchableOpacity, View, StyleSheet } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useFonts } from "expo-font";
+import { Magic } from "@magic-sdk/react-native-expo";
+import { OAuthExtension } from "@magic-ext/react-native-expo-oauth";
 
 const OnboardingFive = ({ navigation }) => {
+  const magic = new Magic("pk_live_C8BD43695BD7E82E", {
+    extensions: [new OAuthExtension()],
+  });
+
+  useEffect(() => {
+    const checkUserLoggedIn = async () => {
+      const isLoggedIn = await magic.user.isLoggedIn();
+      if (isLoggedIn) {
+        navigation.navigate("Home");
+      }
+    };
+    checkUserLoggedIn();
+  }, []);
+
   useFonts({
     "ClashGrotesk-Bold": require("../../assets/fonts/ClashGrotesk-Bold.ttf"),
   });
+
+  const handleGoogleSignIn = async () => {
+    try {
+      await magic.oauth.loginWithPopup({
+        provider: "google",
+        redirectURI: "https://auth.magic.link/v1/oauth2/gRs_gT3y2UuSK4K9DBCKxUSTbhOV-TbseZWqI7jbeQU=/callback",
+      });
+
+      navigation.navigate("Home");
+    } catch (error) {
+      console.error("Google sign-in error:", error);
+    }
+  };
+
   return (
     <>
       <SafeAreaView />
@@ -47,7 +70,7 @@ const OnboardingFive = ({ navigation }) => {
         <View>
           <TouchableOpacity
             style={styles.googgleBtn}
-            // onPress={() => navigation.navigate("Home")}
+            onPress={handleGoogleSignIn}
           >
             <View style={{ display: "flex", flexDirection: "row", gap: 10 }}>
               <Image
@@ -77,11 +100,6 @@ const OnboardingFive = ({ navigation }) => {
 export default OnboardingFive;
 
 const styles = StyleSheet.create({
-  container: {
-    display: "flex",
-    flexDirection: "column",
-    marginTop: 20,
-  },
   txt1_container: {
     width: 258,
   },
@@ -101,22 +119,6 @@ const styles = StyleSheet.create({
   },
   txt2_container: {
     width: 290,
-  },
-  pres_btn: {
-    backgroundColor: "#171717",
-    width: 170,
-    height: 56,
-    borderRadius: 94,
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  skip: {
-    fontWeight: "400",
-    fontSize: 16,
-    textAlign: "center",
-    fontFamily: "ClashGrotesk-Bold",
-    color: "#888888",
   },
   getStarted: {
     backgroundColor: "#EEE0FF",
