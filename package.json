@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@expo/webpack-config": "^19.0.0",
+    "@magic-sdk/react-native-expo": "^29.0.2",
     "@react-native-clipboard/clipboard": "^1.14.0",
     "@react-navigation/bottom-tabs": "^6.5.20",
     "@react-navigation/native": "^6.1.17",
